@@ -1,8 +1,6 @@
 type Result<T> = std::result::Result<T, Box<dyn (std::error::Error)>>;
 
 fn main() -> Result<()> {
-    println!("{:?}", std::env::current_dir());
-
     let input = std::fs::read_to_string("aoc02/input.txt")?;
 
     let original_program: Vec<usize> = input

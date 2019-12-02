@@ -1,8 +1,6 @@
 type Result<T> = std::result::Result<T, Box<dyn (std::error::Error)>>;
 
 fn main() -> Result<()> {
-    println!("{:?}", std::env::current_dir());
-
     let input = std::fs::read_to_string("aoc01/input.txt")?;
 
     let mut sum: i32 = 0;
