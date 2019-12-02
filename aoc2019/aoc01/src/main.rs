@@ -1,18 +1,14 @@
-use std::fs::File;
-use std::io::{prelude::*, BufReader};
-
 type Result<T> = std::result::Result<T, Box<dyn (std::error::Error)>>;
 
 fn main() -> Result<()> {
     println!("{:?}", std::env::current_dir());
 
-    let file = File::open("aoc01/input.txt")?;
-    let reader = BufReader::new(file);
+    let input = std::fs::read_to_string("aoc01/input.txt")?;
 
     let mut sum: i32 = 0;
 
-    for line in reader.lines() {
-        let mass: i32 = line?.parse::<i32>()?;
+    for line in input.lines() {
+        let mass: i32 = line.parse::<i32>()?;
 
         let fuel = fuel(mass);
         sum += fuel;

@@ -1,14 +1,9 @@
-use std::fs::File;
-use std::io::{prelude::*, BufReader};
-
 type Result<T> = std::result::Result<T, Box<dyn (std::error::Error)>>;
 
 fn main() -> Result<()> {
-    let file = File::open("aoc02/input.txt")?;
-    let mut reader = BufReader::new(file);
+    println!("{:?}", std::env::current_dir());
 
-    let mut input = String::new();
-    reader.read_to_string(&mut input)?;
+    let input = std::fs::read_to_string("aoc02/input.txt")?;
 
     let original_program: Vec<usize> = input
         .split(",")
