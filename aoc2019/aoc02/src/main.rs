@@ -1,4 +1,4 @@
-type Result<T> = std::result::Result<T, Box<dyn (std::error::Error)>>;
+use anyhow::Result;
 
 fn main() -> Result<()> {
     let input = std::fs::read_to_string("aoc02/input.txt")?;
