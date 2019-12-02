@@ -7,12 +7,7 @@ fn main() -> Result<()> {
 
     let original_program: Vec<usize> = input
         .split(",")
-        .map(|code| match code.parse::<usize>() {
-            Ok(parsed_code) => parsed_code,
-            Err(err) => {
-                panic!("Unable to convert code `{}` to usize: {}", code, err);
-            }
-        })
+        .filter_map(|code| code.parse::<usize>().ok())
         .collect();
 
     println!("Original program: {:?}", original_program);
