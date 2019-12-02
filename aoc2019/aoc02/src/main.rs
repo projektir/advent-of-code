@@ -34,7 +34,7 @@ fn main() -> Result<()> {
     Ok(())
 }
 
-fn process_program(program: &mut Vec<usize>) {
+fn process_program(program: &mut [usize]) {
     let mut opcode_index = 0;
 
     while opcode_index < program.len() {
@@ -48,7 +48,7 @@ fn process_program(program: &mut Vec<usize>) {
     }
 }
 
-fn process_opcode(program: &mut Vec<usize>, opcode_index: usize) {
+fn process_opcode(program: &mut [usize], opcode_index: usize) {
     let opcode = program[opcode_index];
 
     //println!("Processing opcode {} at position {}", opcode, opcode_index);
